@@ -64,4 +64,32 @@
 
 </body>
 
+<script>
+ function displayTable() {
+    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+    $.ajax({ url: "/api/tables", method: "GET" })
+      .then(function (servingTables) {
+
+        for (var i = 0; i < servingTables.length; i++) {
+
+          var tableList = $("#tableList");
+          var tableSection = $("<li class='list-group-item mt-2'>");
+
+            tableSection.append(
+            $("<h2>").text("Table #" + (i + 1)),
+            $("<hr>"),
+            $("<h2>").text("ID: " + servingTables[i].userID),
+            $("<h2>").text("Name: " + servingTables[i].name),
+            $("<h2>").text("Email: " + servingTables[i].email),
+            $("<h2>").text("Phone: " + servingTables[i].phone)
+          );
+
+          tableList.append(listItem);
+        }
+      });
+  }
+
+  displayTable();
+  </script>
+
 </html>
