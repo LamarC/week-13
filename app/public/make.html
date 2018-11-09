@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Cool Bar - Make Reservation</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="text-center"><i class="far fa-snowflake"></i> The Cool Bar</h1>
+      <h3 class="text-center">Create Reservation</h3>
+      <hr>
+      <div class="text-center">
+      <a href="/view"><button class="btn btn-danger btn-lg"><i class="fa fa-list-alt"></i> View Reserved Tables</button></a>
+      <a href="/"><button class="btn btn-lg btn-primary"><i class="fa fa-home"></i>Restaurant Home</button></a>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-12">
+
+        <div class="card">
+          <div class="card-header">
+            <h3><strong>Make a reservation</strong></h3>
+          </div>
+          <div class="card-body">
+            <form method="POST" role="form">
+
+              <div class="form-group">
+                <label for="name">First and last name</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" class="form-control" id="phone">
+              </div>
+
+              <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email">
+                </div>
+
+              <div class="form-group">
+                <label for="uniqueID">Unique ID</label>
+                <input type="text" class="form-control" id="uniqueID">
+              </div>
+            </form>
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn">Submit reservation</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer mt-4">
+    <div class="container">
+      <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API
+          Wait List</a>
+    </div>
+
+  <script type="text/javascript">
+    // Question: What does this code do?
+    $("#add-btn").on("click", function(event) {
+      event.preventDefault();
+      var newTable = {
+        name: $("#name").val().trim(),
+        phone: $("#phone").val().trim(),
+        email: $("#email").val().trim(),
+        id: $("#uniqueID").val().trim()
+      };
+
+      // Question: What does this code do??
+      $.post("/api/table", newTable)
+        .then(function(data) {
+          alert("Adding table...");
+        });
+    });
+  </script>
+
+</body>
+</html>
