@@ -68,27 +68,26 @@
  function displayTable() {
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
     $.ajax({ url: "/api/tables", method: "GET" })
-      .then(function (servingTables) {
+      .then(function (data) {
 
-        for (var i = 0; i < servingTables.length; i++) {
-
+        data.forEach(val=>{
           var tableList = $("#tableList");
           var tableSection = $("<li class='list-group-item mt-2'>");
 
             tableSection.append(
-            $("<h2>").text("Table #" + (i + 1)),
+            $("<h2>").text("Table #" + (val + 1)),
             $("<hr>"),
-            $("<h2>").text("ID: " + servingTables[i].userID),
-            $("<h2>").text("Name: " + servingTables[i].name),
-            $("<h2>").text("Email: " + servingTables[i].email),
-            $("<h2>").text("Phone: " + servingTables[i].phone)
+            $("<h2>").text("ID: " + val.userID),
+            $("<h2>").text("Name: " + val.name),
+            $("<h2>").text("Email: " + val.email),
+            $("<h2>").text("Phone: " + val.phone)
           );
 
-          tableList.append(listItem);
-        }
-      });
-  }
-
+          tableList.append(ltableSection);
+        })
+        
+})
+}
   displayTable();
   </script>
 
