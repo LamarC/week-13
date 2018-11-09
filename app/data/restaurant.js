@@ -1,3 +1,4 @@
+
 const servingTables = [
     {
         userId:1,
@@ -8,4 +9,4 @@ const servingTables = [
     }
 ]
 
-const waitingList = []
+module.exports = {servingTables:servingTables};
