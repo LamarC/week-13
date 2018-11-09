@@ -39,12 +39,17 @@
               </div>
 
               <div class="form-group">
-                <label for="role">Phone Number</label>
-                <input type="text" class="form-control" id="phone">
+                <label for="phone">Phone Number</label>
+                <input type="number" class="form-control" id="phone">
               </div>
 
               <div class="form-group">
-                <label for="age">Unique ID</label>
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email">
+                </div>
+
+              <div class="form-group">
+                <label for="uniqueID">Unique ID</label>
                 <input type="text" class="form-control" id="uniqueID">
               </div>
             </form>
@@ -65,15 +70,15 @@
       event.preventDefault();
       var newTable = {
         name: $("#name").val().trim(),
-        role: $("#phone").val().trim(),
-        age: $("#uniqueID").val().trim(),
+        phone: $("#phone").val().trim(),
+        email: $("#email").val().trim(),
+        id: $("#uniqueID").val().trim()
       };
 
       // Question: What does this code do??
-      $.post("/api/characters", newCharacter)
+      $.post("/api/table", newTable)
         .then(function(data) {
-          console.log("add.html", data);
-          alert("Adding character...");
+          alert("Adding table...");
         });
     });
   </script>
