@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = (path) => {
+module.exports = (app) => {
     //index
     //view
     //make

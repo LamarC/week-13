@@ -3,6 +3,8 @@ const path=require('path');
 const servingTables=require('../data/restaurant.js');
 const witingList=require('../data/waitingList.js');
 
+module.exports = (app) => {
+
 app.get('/api/make', (req, res)=>{
     console.log(servingTables);
     res.json(servingTables);  
@@ -23,3 +25,4 @@ else{
 waitingList.push(req.body);
 }
 })
+}
