@@ -1,15 +1,15 @@
 const path=require('path');
 
 const servingTables=require('../data/restaurant.js');
-const waitingList=require('../data/restaurant.js');
-
-
+const witingList=require('../data/waitingList.js');
 
 app.get('/api/make', (req, res)=>{
+    console.log(servingTables);
     res.json(servingTables);  
    })
 
 app.get('/api/view', (req, res)=>{
+    console.log(waitingList);
  res.json(waitingList);
 })
 
@@ -22,5 +22,4 @@ if(servingTables.length<6){
 else{
 waitingList.push(req.body);
 }
-
 })
