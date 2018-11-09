@@ -10,7 +10,7 @@ app.get('/api/tables', (req, res)=>{
     res.json(servingTables);  
    })
 
-app.get('/api/view', (req, res)=>{
+app.get('/api/waitlist', (req, res)=>{
     console.log(waitingList);
  res.json(waitingList);
 })

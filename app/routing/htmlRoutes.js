@@ -5,12 +5,12 @@ module.exports = (app) => {
     //view
     //make
     
-    app.get("/make", (req, res) => {
+    app.get("/tables", (req, res) => {
 
         res.sendFile(path.join(__dirname, "../public/make.html"))
     });
 
-    app.get("/view", (req, res) => {
+    app.get("/waitlist", (req, res) => {
 
         res.sendFile(path.join(__dirname, "../public/view.html"))
     });
