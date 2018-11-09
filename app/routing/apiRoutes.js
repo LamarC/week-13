@@ -5,7 +5,7 @@ const waitingList=require('../data/waitingList.js');
 
 module.exports = (app) => {
 
-app.get('/api/make', (req, res)=>{
+app.get('/api/tables', (req, res)=>{
     console.log(servingTables);
     res.json(servingTables);  
    })
@@ -16,9 +16,9 @@ app.get('/api/view', (req, res)=>{
 })
 
 
-app.post('/api/make', (req, res)=>{
+app.post('/api/tables', (req, res)=>{
 
-if(servingTables.length<6){
+if(servingTables.length < 6){
     servingTable.push(req.body);
 }
 else{
