@@ -1,7 +1,7 @@
 const path=require('path');
 
 const servingTables=require('../data/restaurant.js');
-const witingList=require('../data/waitingList.js');
+const waitingList=require('../data/waitingList.js');
 
 module.exports = (app) => {
 
@@ -16,7 +16,7 @@ app.get('/api/view', (req, res)=>{
 })
 
 
-app.post('api/make', (req, res)=>{
+app.post('/api/make', (req, res)=>{
 
 if(servingTables.length<6){
     servingTable.push(req.body);
